@@ -1,0 +1,31 @@
+package com.revenuecat.purchases.ui.revenuecatui.components.text;
+
+import c1.d;
+import com.revenuecat.purchases.paywalls.components.common.LocaleId;
+import com.revenuecat.purchases.ui.revenuecatui.components.ktx.LocalizationKt;
+import ie.InterfaceC5082a;
+import kotlin.Metadata;
+import kotlin.jvm.internal.AbstractC5506u;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes4.dex */
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "Lcom/revenuecat/purchases/paywalls/components/common/LocaleId;", "invoke-uqtKvyA", "()Ljava/lang/String;"}, k = 3, mv = {1, 8, 0}, xi = 48)
+final class TextComponentState$localeId$2 extends AbstractC5506u implements InterfaceC5082a {
+    final /* synthetic */ TextComponentState this$0;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    TextComponentState$localeId$2(TextComponentState textComponentState) {
+        super(0);
+        this.this$0 = textComponentState;
+    }
+
+    @Override // ie.InterfaceC5082a
+    public /* bridge */ /* synthetic */ Object invoke() {
+        return LocaleId.m307boximpl(m545invokeuqtKvyA());
+    }
+
+    /* JADX INFO: renamed from: invoke-uqtKvyA, reason: not valid java name */
+    public final String m545invokeuqtKvyA() {
+        return LocalizationKt.toLocaleId((d) this.this$0.localeProvider.invoke());
+    }
+}

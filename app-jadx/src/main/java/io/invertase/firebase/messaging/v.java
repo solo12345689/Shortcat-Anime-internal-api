@@ -1,0 +1,14 @@
+package io.invertase.firebase.messaging;
+
+import com.facebook.react.bridge.WritableMap;
+import com.google.firebase.messaging.W;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes4.dex */
+public interface v {
+    void a(String str);
+
+    WritableMap b(String str);
+
+    void c(W w10);
+}

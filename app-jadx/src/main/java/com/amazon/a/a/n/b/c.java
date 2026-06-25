@@ -1,0 +1,17 @@
+package com.amazon.a.a.n.b;
+
+import java.util.Date;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes3.dex */
+public interface c {
+    void a();
+
+    void a(com.amazon.a.a.n.a aVar);
+
+    void a(com.amazon.a.a.n.a aVar, long j10);
+
+    void a(com.amazon.a.a.n.a aVar, Date date);
+
+    void b(com.amazon.a.a.n.a aVar);
+}

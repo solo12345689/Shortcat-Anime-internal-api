@@ -1,0 +1,22 @@
+package androidx.work.impl;
+
+import kotlin.jvm.internal.AbstractC5504s;
+
+/* JADX INFO: renamed from: androidx.work.impl.f, reason: case insensitive filesystem */
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes3.dex */
+public final class C2956f extends N3.b {
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    public static final C2956f f32847c = new C2956f();
+
+    private C2956f() {
+        super(11, 12);
+    }
+
+    @Override // N3.b
+    public void a(S3.g db2) {
+        AbstractC5504s.h(db2, "db");
+        db2.T("ALTER TABLE workspec ADD COLUMN `out_of_quota_policy` INTEGER NOT NULL DEFAULT 0");
+    }
+}

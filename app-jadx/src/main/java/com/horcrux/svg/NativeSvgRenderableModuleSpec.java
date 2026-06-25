@@ -1,0 +1,48 @@
+package com.horcrux.svg;
+
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.turbomodule.core.interfaces.TurboModule;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class NativeSvgRenderableModuleSpec extends ReactContextBaseJavaModule implements TurboModule {
+    public static final String NAME = "RNSVGRenderableModule";
+
+    public NativeSvgRenderableModuleSpec(ReactApplicationContext reactApplicationContext) {
+        super(reactApplicationContext);
+    }
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract WritableMap getBBox(Double d10, ReadableMap readableMap);
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract WritableMap getCTM(Double d10);
+
+    @Override // com.facebook.react.bridge.NativeModule
+    public String getName() {
+        return "RNSVGRenderableModule";
+    }
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract WritableMap getPointAtLength(Double d10, ReadableMap readableMap);
+
+    @ReactMethod
+    public abstract void getRawResource(String str, Promise promise);
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract WritableMap getScreenCTM(Double d10);
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract double getTotalLength(Double d10);
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract boolean isPointInFill(Double d10, ReadableMap readableMap);
+
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public abstract boolean isPointInStroke(Double d10, ReadableMap readableMap);
+}

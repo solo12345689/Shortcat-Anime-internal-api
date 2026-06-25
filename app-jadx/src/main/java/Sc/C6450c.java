@@ -1,0 +1,45 @@
+package sc;
+
+import Ub.d;
+import android.net.Uri;
+import com.facebook.react.bridge.Dynamic;
+import ec.EnumC4666a;
+import expo.modules.kotlin.exception.DynamicCastException;
+import expo.modules.kotlin.jni.ExpectedType;
+import kotlin.jvm.internal.AbstractC5504s;
+import kotlin.jvm.internal.O;
+import pc.AbstractC5990u;
+
+/* JADX INFO: renamed from: sc.c, reason: case insensitive filesystem */
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C6450c extends AbstractC5990u {
+    @Override // expo.modules.kotlin.types.a, expo.modules.kotlin.types.b
+    public boolean b() {
+        return false;
+    }
+
+    @Override // expo.modules.kotlin.types.b
+    public ExpectedType c() {
+        return new ExpectedType(EnumC4666a.f45836i);
+    }
+
+    @Override // pc.AbstractC5990u
+    /* JADX INFO: renamed from: g, reason: merged with bridge method [inline-methods] */
+    public Uri e(Object value, d dVar, boolean z10) {
+        AbstractC5504s.h(value, "value");
+        return Uri.parse((String) value);
+    }
+
+    @Override // pc.AbstractC5990u
+    /* JADX INFO: renamed from: h, reason: merged with bridge method [inline-methods] */
+    public Uri f(Dynamic value, d dVar, boolean z10) throws DynamicCastException {
+        Uri uri;
+        AbstractC5504s.h(value, "value");
+        String strAsString = value.asString();
+        if (strAsString == null || (uri = Uri.parse(strAsString)) == null) {
+            throw new DynamicCastException(O.b(Uri.class));
+        }
+        return uri;
+    }
+}

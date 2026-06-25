@@ -1,0 +1,32 @@
+package N;
+
+import U0.T0;
+import android.view.inputmethod.CursorAnchorInfo;
+import r0.C6226h;
+
+/* JADX INFO: renamed from: N.n, reason: case insensitive filesystem */
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes.dex */
+public final class C1949n {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public static final C1949n f12502a = new C1949n();
+
+    private C1949n() {
+    }
+
+    public static final CursorAnchorInfo.Builder a(CursorAnchorInfo.Builder builder, T0 t02, C6226h c6226h) {
+        int iR;
+        int iR2;
+        if (!c6226h.q() && (iR = t02.r(c6226h.l())) <= (iR2 = t02.r(c6226h.e()))) {
+            while (true) {
+                builder.addVisibleLineBounds(t02.s(iR), t02.v(iR), t02.t(iR), t02.m(iR));
+                if (iR == iR2) {
+                    break;
+                }
+                iR++;
+            }
+        }
+        return builder;
+    }
+}

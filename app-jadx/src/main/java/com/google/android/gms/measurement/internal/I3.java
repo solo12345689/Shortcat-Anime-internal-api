@@ -1,0 +1,30 @@
+package com.google.android.gms.measurement.internal;
+
+import java.util.Objects;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes3.dex */
+final class I3 extends AbstractC3932x {
+
+    /* JADX INFO: renamed from: e, reason: collision with root package name */
+    final /* synthetic */ C3937x4 f40799e;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    I3(C3937x4 c3937x4, C3 c32) {
+        super(c32);
+        Objects.requireNonNull(c3937x4);
+        this.f40799e = c3937x4;
+    }
+
+    @Override // com.google.android.gms.measurement.internal.AbstractC3932x
+    public final void a() {
+        final C3937x4 c3937x4B = this.f40799e.f40611a.B();
+        Objects.requireNonNull(c3937x4B);
+        new Thread(new Runnable() { // from class: com.google.android.gms.measurement.internal.H3
+            @Override // java.lang.Runnable
+            public final /* synthetic */ void run() {
+                c3937x4B.u0();
+            }
+        }).start();
+    }
+}

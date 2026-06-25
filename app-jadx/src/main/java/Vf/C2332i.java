@@ -1,0 +1,55 @@
+package Vf;
+
+import java.util.Arrays;
+import kotlin.jvm.internal.AbstractC5504s;
+import oe.AbstractC5874j;
+
+/* JADX INFO: renamed from: Vf.i, reason: case insensitive filesystem */
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes5.dex */
+public final class C2332i extends AbstractC2343n0 {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    private byte[] f20196a;
+
+    /* JADX INFO: renamed from: b, reason: collision with root package name */
+    private int f20197b;
+
+    public C2332i(byte[] bufferWithData) {
+        AbstractC5504s.h(bufferWithData, "bufferWithData");
+        this.f20196a = bufferWithData;
+        this.f20197b = bufferWithData.length;
+        b(10);
+    }
+
+    @Override // Vf.AbstractC2343n0
+    public void b(int i10) {
+        byte[] bArr = this.f20196a;
+        if (bArr.length < i10) {
+            byte[] bArrCopyOf = Arrays.copyOf(bArr, AbstractC5874j.e(i10, bArr.length * 2));
+            AbstractC5504s.g(bArrCopyOf, "copyOf(...)");
+            this.f20196a = bArrCopyOf;
+        }
+    }
+
+    @Override // Vf.AbstractC2343n0
+    public int d() {
+        return this.f20197b;
+    }
+
+    public final void e(byte b10) {
+        AbstractC2343n0.c(this, 0, 1, null);
+        byte[] bArr = this.f20196a;
+        int iD = d();
+        this.f20197b = iD + 1;
+        bArr[iD] = b10;
+    }
+
+    @Override // Vf.AbstractC2343n0
+    /* JADX INFO: renamed from: f, reason: merged with bridge method [inline-methods] */
+    public byte[] a() {
+        byte[] bArrCopyOf = Arrays.copyOf(this.f20196a, d());
+        AbstractC5504s.g(bArrCopyOf, "copyOf(...)");
+        return bArrCopyOf;
+    }
+}

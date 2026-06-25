@@ -1,0 +1,8 @@
+package id;
+
+/* JADX INFO: renamed from: id.g, reason: case insensitive filesystem */
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes4.dex */
+public interface InterfaceC5075g extends InterfaceC5076h, InterfaceC5080l {
+    InterfaceC5075g b(C5079k c5079k);
+}

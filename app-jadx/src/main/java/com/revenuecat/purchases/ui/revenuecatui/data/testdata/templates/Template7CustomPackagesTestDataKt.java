@@ -1,0 +1,102 @@
+package com.revenuecat.purchases.ui.revenuecatui.data.testdata.templates;
+
+import Td.z;
+import Ud.AbstractC2279u;
+import Ud.S;
+import com.revenuecat.purchases.PackageType;
+import com.revenuecat.purchases.paywalls.PaywallColor;
+import com.revenuecat.purchases.paywalls.PaywallData;
+import com.revenuecat.purchases.ui.revenuecatui.data.testdata.TestData;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import kotlin.Metadata;
+import kotlin.Pair;
+import kotlin.jvm.internal.AbstractC5504s;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+
+/* JADX INFO: compiled from: r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7 */
+/* JADX INFO: loaded from: classes4.dex */
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\"\u0018\u0010\u0000\u001a\u00020\u0001*\u00020\u00028@X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"template7CustomPackages", "Lcom/revenuecat/purchases/paywalls/PaywallData;", "Lcom/revenuecat/purchases/ui/revenuecatui/data/testdata/TestData;", "getTemplate7CustomPackages", "(Lcom/revenuecat/purchases/ui/revenuecatui/data/testdata/TestData;)Lcom/revenuecat/purchases/paywalls/PaywallData;", "revenuecatui_defaultsBc8Release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+public final class Template7CustomPackagesTestDataKt {
+    public static final PaywallData getTemplate7CustomPackages(TestData testData) {
+        AbstractC5504s.h(testData, "<this>");
+        List listM = AbstractC2279u.m();
+        int i10 = 6;
+        DefaultConstructorMarker defaultConstructorMarker = null;
+        String str = null;
+        String str2 = null;
+        Map mapL = S.l(z.a("basic", new PaywallData.Configuration.Images("954459_1703109702.png", str, str2, i10, defaultConstructorMarker)), z.a("premium", new PaywallData.Configuration.Images("954459_1701267532.jpeg", str, str2, i10, defaultConstructorMarker)));
+        PackageType packageType = PackageType.ANNUAL;
+        String identifier = packageType.getIdentifier();
+        AbstractC5504s.e(identifier);
+        PackageType packageType2 = PackageType.MONTHLY;
+        String identifier2 = packageType2.getIdentifier();
+        AbstractC5504s.e(identifier2);
+        PackageType packageType3 = PackageType.SIX_MONTH;
+        String identifier3 = packageType3.getIdentifier();
+        AbstractC5504s.e(identifier3);
+        List listP = AbstractC2279u.p(identifier, identifier2, identifier3);
+        String identifier4 = packageType.getIdentifier();
+        AbstractC5504s.e(identifier4);
+        PaywallData.Configuration.Tier tier = new PaywallData.Configuration.Tier("basic", listP, identifier4);
+        PackageType packageType4 = PackageType.LIFETIME;
+        String identifier5 = packageType4.getIdentifier();
+        AbstractC5504s.e(identifier5);
+        List listE = AbstractC2279u.e(identifier5);
+        String identifier6 = packageType4.getIdentifier();
+        AbstractC5504s.e(identifier6);
+        List listP2 = AbstractC2279u.p(tier, new PaywallData.Configuration.Tier("premium", listE, identifier6));
+        DefaultConstructorMarker defaultConstructorMarker2 = null;
+        int i11 = 1088;
+        DefaultConstructorMarker defaultConstructorMarker3 = null;
+        String str3 = null;
+        PaywallData.Configuration.Images images = null;
+        PaywallData.Configuration.Images images2 = null;
+        boolean z10 = false;
+        boolean z11 = true;
+        String str4 = null;
+        PaywallData.Configuration configuration = new PaywallData.Configuration(listM, str3, images, images2, mapL, z10, z11, new URL("https://revenuecat.com/tos"), new URL("https://revenuecat.com/privacy"), new PaywallData.Configuration.ColorInformation(new PaywallData.Configuration.Colors(new PaywallColor("#FFFFFF"), new PaywallColor("#000000"), (PaywallColor) null, (PaywallColor) null, new PaywallColor("#45c186"), new PaywallColor("#ffffff"), (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, (PaywallColor) null, 32716, defaultConstructorMarker2), (PaywallData.Configuration.Colors) null, 2, (DefaultConstructorMarker) (0 == true ? 1 : 0)), S.l(z.a("basic", new PaywallData.Configuration.ColorInformation(new PaywallData.Configuration.Colors(new PaywallColor("#FFFFFF"), new PaywallColor("#000000"), new PaywallColor("#ffffff"), new PaywallColor("#30A0F8AA"), new PaywallColor("#3fc1f7"), new PaywallColor("#ffffff"), (PaywallColor) (0 == true ? 1 : 0), new PaywallColor("#2d7fc1"), new PaywallColor("#7676801F"), new PaywallColor("#100031"), (PaywallColor) (0 == true ? 1 : 0), new PaywallColor("#eeeef0"), new PaywallColor("#000000"), new PaywallColor("#2d7fc1"), new PaywallColor("#000000"), i11, defaultConstructorMarker2), (PaywallData.Configuration.Colors) null, 2, (DefaultConstructorMarker) (0 == true ? 1 : 0))), z.a("premium", new PaywallData.Configuration.ColorInformation(new PaywallData.Configuration.Colors(new PaywallColor("#FFFFFF"), new PaywallColor("#000000"), new PaywallColor("#ffffff"), new PaywallColor("#30A0F8AA"), new PaywallColor("#94d269"), new PaywallColor("#ffffff"), (PaywallColor) (0 == true ? 1 : 0), new PaywallColor("#76c343"), new PaywallColor("#7676801F"), new PaywallColor("#213711"), (PaywallColor) (0 == true ? 1 : 0), new PaywallColor("#eeeef0"), new PaywallColor("#000000"), new PaywallColor("#76c343"), new PaywallColor("#000000"), i11, defaultConstructorMarker2), (PaywallData.Configuration.Colors) null, 2, (DefaultConstructorMarker) (0 == true ? 1 : 0)))), listP2, str4, 4142, defaultConstructorMarker3);
+        TestData.Constants constants = TestData.Constants.INSTANCE;
+        URL assetBaseURL = constants.getAssetBaseURL();
+        DefaultConstructorMarker defaultConstructorMarker4 = null;
+        String str5 = null;
+        String str6 = null;
+        String str7 = null;
+        byte b10 = 0 == true ? 1 : 0;
+        byte b11 = 0 == true ? 1 : 0;
+        Map mapF = S.f(z.a("en_US", new PaywallData.LocalizedConfiguration("Get started with our Basic plan", str5, "{{ price_per_period }}", (String) null, str6, "{{ total_price_and_per_month }}", (String) b10, str7, "{{ sub_period }}", (List) null, (String) b11, (Map) null, 3802, defaultConstructorMarker4)));
+        List listE2 = AbstractC2279u.e(new PaywallData.LocalizedConfiguration.Feature("Access to all 150 of our cinematic LUTs", (String) null, "tick", 2, (DefaultConstructorMarker) null));
+        String identifier7 = packageType2.getIdentifier();
+        AbstractC5504s.e(identifier7);
+        String str8 = null;
+        byte b12 = 0 == true ? 1 : 0;
+        Pair pairA = z.a(identifier7, new PaywallData.LocalizedConfiguration.OfferOverride("{{ sub_period }}", "{{ total_price_and_per_month }}", (String) null, str8, (String) (0 == true ? 1 : 0), 12, (DefaultConstructorMarker) b12));
+        String identifier8 = packageType.getIdentifier();
+        AbstractC5504s.e(identifier8);
+        byte b13 = 0 == true ? 1 : 0;
+        Pair pairA2 = z.a(identifier8, new PaywallData.LocalizedConfiguration.OfferOverride("NAME OVERRIDE {{ sub_period }}", "DETAIL OVERRIDE {{ total_price_and_per_month }}", str8, (String) b13, (String) null, 12, (DefaultConstructorMarker) null));
+        String identifier9 = packageType3.getIdentifier();
+        AbstractC5504s.e(identifier9);
+        byte b14 = 0 == true ? 1 : 0;
+        byte b15 = 0 == true ? 1 : 0;
+        String str9 = "Get started with our Basic plan";
+        String str10 = "Subscribe for {{ price_per_period }}";
+        String str11 = "Start your {{ sub_offer_duration }} free trial";
+        String str12 = "{{ total_price_and_per_month }}";
+        String str13 = "{{ total_price_and_per_month }} after {{ sub_offer_duration }} trial";
+        String str14 = "{{ sub_period }}";
+        String str15 = "Basic";
+        Pair pairA3 = z.a("basic", new PaywallData.LocalizedConfiguration(str9, str5, str10, str11, str6, str12, str13, str7, str14, listE2, str15, S.l(pairA, pairA2, z.a(identifier9, new PaywallData.LocalizedConfiguration.OfferOverride("NAME OVERRIDE {{ sub_period }}", "DETAIL OVERRIDE {{ total_price_and_per_month }}", (String) b14, (String) b15, "BADGE OVERRIDE {{ sub_relative_discount }}", 12, defaultConstructorMarker3))), 146, defaultConstructorMarker4));
+        PaywallData.LocalizedConfiguration.Feature feature = new PaywallData.LocalizedConfiguration.Feature("Access to all 150 of our cinematic LUTs", (String) null, "tick", 2, (DefaultConstructorMarker) (0 == true ? 1 : 0));
+        PaywallData.LocalizedConfiguration.Feature feature2 = new PaywallData.LocalizedConfiguration.Feature("Custom design tools and transition effects", (String) null, "tick", 2, (DefaultConstructorMarker) null);
+        String str16 = "100+ exclusive templates";
+        String str17 = null;
+        String str18 = "tick";
+        String str19 = null;
+        String str20 = "{{ sub_period }}";
+        String str21 = "Premium";
+        Map map = null;
+        return new PaywallData((String) null, "7", configuration, assetBaseURL, 0, mapF, S.f(z.a("en_US", S.l(pairA3, z.a("premium", new PaywallData.LocalizedConfiguration("Master the art of video editing", str19, "Subscribe for {{ price_per_period }}", "Start your {{ sub_offer_duration }} free trial", str17, "{{ total_price_and_per_month }}", "{{ total_price_and_per_month }} after {{ sub_offer_duration }} trial", (String) (0 == true ? 1 : 0), str20, AbstractC2279u.p(feature, feature2, new PaywallData.LocalizedConfiguration.Feature(str16, str17, str18, 2, (DefaultConstructorMarker) null)), str21, map, 2194, (DefaultConstructorMarker) null))))), constants.getZeroDecimalPlaceCountries(), str19, 273, (DefaultConstructorMarker) null);
+    }
+}
