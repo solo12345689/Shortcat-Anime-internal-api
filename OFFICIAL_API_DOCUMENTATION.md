@@ -221,10 +221,28 @@ Authorization: Bearer <kratos_session_token>
   ```
 
 ### 5.4. Profile & Rewards
-- **Get Profile**: `GET /api/v1/profile`
-- **Update Profile Picture**: `POST /api/v1/profile_picture`
-- **Bookmarks**: `GET /api/v1/profile/bookmarks` / `POST /api/v1/profile/bookmarks`
-- **Rewards Program**: `GET /api/v1/profile/rewards` (Fetches user coins or loyalty points used for unlocking premium episodes)
+The mobile client implements a dedicated Profile Screen route at `/(tabs)/profile.tsx` containing the following sections and integrations:
+
+1. **Profile Picture / Avatar**:
+   - **Hook**: `useProfilePictures` and `getProfilePicture`
+   - **Changing Avatar**: Triggers the Expo system library `launchImageLibraryAsync` to pick an image from the device storage.
+   - **Upload Endpoint**: `POST /api/v1/profile_picture` (Accepts multipart binary payloads to update the active profile picture).
+
+2. **Bookmarks List**:
+   - **Endpoints**: `GET /api/v1/profile/bookmarks` / `POST /api/v1/profile/bookmarks`
+   - **Description**: Displays the user's bookmarked anime series.
+
+3. **Rewards Program**:
+   - **Endpoint**: `GET /api/v1/profile/rewards`
+   - **Description**: Fetches user coins or loyalty points used for unlocking premium episodes.
+
+4. **Linked Devices**:
+   - **Endpoint**: `GET /api/v1/profile/devices`
+   - **Description**: Lists active login sessions and authorized devices for the session identity.
+
+5. **User Feedback Form**:
+   - **Endpoint**: `POST /api/v1/profile/feedbacks`
+   - **Description**: Allows submitting support requests or feedback from within the tab layout.
 
 ### 5.5. Watch Progress Synchronization
 - **Sync Watch Progress**: `POST /api/v1/watch/progress` (via `useWatchProgressSync`)
