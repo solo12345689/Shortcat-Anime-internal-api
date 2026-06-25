@@ -1,0 +1,110 @@
+.class LAf/j$b;
+.super Ljava/lang/Object;
+.source "r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7"
+
+# interfaces
+.implements Ljava/util/Iterator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = LAf/j;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "b"
+.end annotation
+
+
+# static fields
+.field private static final a:LAf/j$b;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    new-instance v0, LAf/j$b;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, LAf/j$b;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    sput-object v0, LAf/j$b;->a:LAf/j$b;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static b()LAf/j$b;
+    .locals 1
+
+    .line 1
+    sget-object v0, LAf/j$b;->a:LAf/j$b;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public hasNext()Z
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    return v0
+.end method
+
+.method public next()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    new-instance v0, Ljava/util/NoSuchElementException;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw v0
+.end method
+
+.method public remove()V
+    .locals 1
+
+    .line 1
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw v0
+.end method

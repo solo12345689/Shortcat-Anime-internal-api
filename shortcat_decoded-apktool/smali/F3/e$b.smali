@@ -1,0 +1,76 @@
+.class public abstract LF3/e$b;
+.super Ljava/lang/Object;
+.source "r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = LF3/e;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "b"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        LF3/e$b$a;,
+        LF3/e$b$b;
+    }
+.end annotation
+
+
+# instance fields
+.field final a:Landroid/media/browse/MediaBrowser$ConnectionCallback;
+
+.field b:LF3/e$b$b;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    new-instance v0, LF3/e$b$a;
+
+    .line 5
+    .line 6
+    invoke-direct {v0, p0}, LF3/e$b$a;-><init>(LF3/e$b;)V
+
+    .line 7
+    .line 8
+    .line 9
+    iput-object v0, p0, LF3/e$b;->a:Landroid/media/browse/MediaBrowser$ConnectionCallback;
+
+    .line 10
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract a()V
+.end method
+
+.method public abstract b()V
+.end method
+
+.method public abstract c()V
+.end method
+
+.method d(LF3/e$b$b;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, LF3/e$b;->b:LF3/e$b$b;
+
+    .line 2
+    .line 3
+    return-void
+.end method

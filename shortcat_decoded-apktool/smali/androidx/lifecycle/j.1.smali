@@ -1,0 +1,46 @@
+.class public final synthetic Landroidx/lifecycle/j;
+.super Ljava/lang/Object;
+.source "r8-map-id-a27a03ecaa04c3f144355334beb55c9cbfc36dda79e554423bceb24cf939fcb7"
+
+# interfaces
+.implements Landroidx/lifecycle/o;
+
+
+# instance fields
+.field public final synthetic a:LJf/u;
+
+
+# direct methods
+.method public synthetic constructor <init>(LJf/u;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Landroidx/lifecycle/j;->a:LJf/u;
+
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final g(Landroidx/lifecycle/r;Landroidx/lifecycle/k$a;)V
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Landroidx/lifecycle/j;->a:LJf/u;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p1, p2}, Landroidx/lifecycle/k;->a(LJf/u;Landroidx/lifecycle/r;Landroidx/lifecycle/k$a;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
