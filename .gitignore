@@ -1,0 +1,9 @@
+# Ignore compiled APK files
+*.apk
+*.apks
+*.xapk
+
+# Ignore system/tool-specific logs & settings
+.agents/
+.gemini/
+*.log
