@@ -343,3 +343,22 @@ Requests made to download streaming video slices (`.ts`, `.mp4`, `.m3u8`) or sta
   `Referer: https://www.getshortcat.com/` or `Referer: android-app://com.flagcat.shortcat`
 - **Origin**: `https://www.getshortcat.com`
 - **User-Agent**: Native player client configurations (e.g. `ExoPlayer` or `AVPlayer`).
+
+---
+
+## 10. Anonymous Video Access & Session Guards
+
+The application enforces structural rules governing whether a user can stream content without an active authenticated account.
+
+### 10.1. Unauthenticated Preview Assets
+The client code references a small set of static preview resources that are public and bypass login/signup checking:
+- **Onboarding Intro Video**: `https://cdn.getshortcat.com/onboarding/montage.mp4` (Used for user onboarding sequence background loop).
+- **Trailer/Demo Asset**: `https://pub-197e0ddab46d45a98a079367d3e135e9.r2.dev/output.mp4`
+- **Onboarding Catalog Metadata**: `https://pub-197e0ddab46d45a98a079367d3e135e9.r2.dev/shortcat/onboarding/catalog.json`
+
+### 10.2. Authenticated Catalog Guarding
+For all standard serial episodes, access is blocked unless the user logs in:
+1. **Dynamic URL Ingestion**: Real streaming endpoints (`.m3u8` playlists) are fetched on-demand via the episode detail endpoint (`GET /api/v1/episodes/{episodeId}`). This endpoint requires a valid `Authorization: Bearer <ory_session_token>` header; requests without it are rejected by the server (HTTP 401 Unauthorized), preventing retrieval of the stream location.
+2. **Navigation Stack Router Guard**: The client navigation hierarchy is managed by `expo-router` using the `(app)` structure. The main layout wrapper initializes the `useSession` hook. If no valid session token exists in `expo-secure-store`, the routing manager cancels rendering and redirects the navigation stack to the login view `(auth)/login`.
+3. **Paywall Overlay Guard**: Standard media items execute check flows verifying active subscription status (`premium` or `vip` entitlement IDs) via RevenueCat. Active player components are masked by full-screen purchase views if these validation flags are missing.
+
