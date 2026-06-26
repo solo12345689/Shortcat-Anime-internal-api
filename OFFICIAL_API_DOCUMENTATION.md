@@ -201,7 +201,7 @@ Authorization: Bearer <kratos_session_token>
 - **Get Series by Genre**: `GET /api/v1/series/genre/{genreId}` (via `useSeriesByGenre`)
 - **Get Series by Tag**: `GET /api/v1/series/tag/{tagId}` (via `useSeriesByTag`)
 - **Search Series**: `GET /api/v1/series/search?q={query}`
-- **Series Completion**: `POST /api/v1/series/complete` (Updates the watched catalog)
+- **Series Completion (Local Only)**: No API endpoint. Playback status is tracked inside the client local store. (Note: `thumbhash:/api/v1/series/complete` found in compilation artifacts is a ThumbHash image placeholder asset path, not an active REST route).
 - **Hero/Highlight Media**: `GET /api/v1/series/hero-video` (Fetches current featured banner series)
 
 ### 5.3. Episodes API
@@ -226,7 +226,8 @@ The mobile client implements a dedicated Profile Screen route at `/(tabs)/profil
 1. **Profile Picture / Avatar**:
    - **Hook**: `useProfilePictures` and `getProfilePicture`
    - **Changing Avatar**: Triggers the Expo system library `launchImageLibraryAsync` to pick an image from the device storage.
-   - **Upload Endpoint**: `POST /api/v1/profile_picture` (Accepts multipart binary payloads to update the active profile picture).
+   - **Upload Endpoint**: `PUT /api/v1/profile`
+   - **Payload Format**: `multipart/form-data` with the file attached to the form field key `user[picture]`.
 
 2. **Bookmarks List**:
    - **Endpoints**: `GET /api/v1/profile/bookmarks` / `POST /api/v1/profile/bookmarks`
@@ -242,19 +243,25 @@ The mobile client implements a dedicated Profile Screen route at `/(tabs)/profil
 
 5. **User Feedback Form**:
    - **Endpoint**: `POST /api/v1/profile/feedbacks`
-   - **Description**: Allows submitting support requests or feedback from within the tab layout.
+   - **Payload Format**: `application/json` with the following structure:
+     ```json
+     {
+       "feedback": {
+         "campaign": "web_app_feedback",
+         "content": {
+           "body": "User's feedback or support message text here"
+         }
+       }
+     }
+     ```
+   - **Validation Constraints**:
+     - `campaign`: Minimum 3 characters (returns `422 Unprocessable Entity` on violation).
+     - Rails 8 Strong Parameters: Expects a nested `content` hash containing `body`. Passing a flat string or missing container structure results in a `500 Internal Server Error` (`ActionController::ParameterMissing`).
+   - **Description**: Allows submitting support requests or feedback. Returns `201 Created` on success.
 
-### 5.5. Watch Progress Synchronization
-- **Sync Watch Progress**: `POST /api/v1/watch/progress` (via `useWatchProgressSync`)
-  - **Payload**:
-    ```json
-    {
-      "episodeId": "episode-201",
-      "progressSeconds": 45.2,
-      "completed": false,
-      "updatedAt": "2026-06-24T22:00:00Z"
-    }
-    ```
+### 5.5. Watch Progress Synchronization (Local Only / MMKV)
+- **Sync Watch Progress**: Currently **Not Implemented** as a backend network request. The endpoint `/api/v1/watch/progress` does not exist in the JS bundle string tables and returns a `404 Not Found` if called.
+- **Client Storage**: Watch progress is tracked entirely local to the device using the `useWatchProgressStore` state engine and persisted in key-value format using the native `MMKV` library to enable "Continue Watching" playback resume.
 
 ---
 
@@ -379,4 +386,29 @@ For all standard serial episodes, access is blocked unless the user logs in:
 1. **Dynamic URL Ingestion**: Real streaming endpoints (`.m3u8` playlists) are fetched on-demand via the episode detail endpoint (`GET /api/v1/episodes/{episodeId}`). This endpoint requires a valid `Authorization: Bearer <ory_session_token>` header; requests without it are rejected by the server (HTTP 401 Unauthorized), preventing retrieval of the stream location.
 2. **Navigation Stack Router Guard**: The client navigation hierarchy is managed by `expo-router` using the `(app)` structure. The main layout wrapper initializes the `useSession` hook. If no valid session token exists in `expo-secure-store`, the routing manager cancels rendering and redirects the navigation stack to the login view `(auth)/login`.
 3. **Paywall Overlay Guard**: Standard media items execute check flows verifying active subscription status (`premium` or `vip` entitlement IDs) via RevenueCat. Active player components are masked by full-screen purchase views if these validation flags are missing.
+
+---
+
+## 11. Loyalty Coins & Rewards System
+
+The application incorporates a virtual rewards system utilizing "Loyalty Coins" that is managed through a combination of server-side states and payment SDK integrations.
+
+### 11.1. Native SDK Dependencies (Amazon IAP)
+The mobile app embeds the **Amazon Device In-App Purchasing (IAP) SDK** (`com.amazon.device.iap.model.*`) which maps product packages to coin rewards natively:
+- **Product Mapping**: The `Product` and `ProductBuilder` classes contain a `CoinsReward` field.
+- **Coin Reward Value**: The `coinsRewardAmount` parameter stores the number of Amazon Coins rewarded to the user upon making standard in-app purchases.
+
+### 11.2. Server-Side Balance Management
+The actual balance is read-only on the client application and is stored/calculated entirely on the Rails backend database:
+- **Profile Endpoint**: `GET /api/v1/profile` returns the `"coins"` field nested under `"user"`.
+- **Promotion/Tasks Endpoint**: `GET /api/v1/profile/rewards` returns a list of active reward campaigns/claims available to the user.
+- **Progress Ingestion**: Placed locally on the client via `useWatchProgressStore` and stored in MMKV to support playback resume. The app does not sync watch duration to the server, meaning it is currently impossible to earn coins dynamically via watch time progression.
+
+### 11.3. Survey Rewards System (Disabled)
+The React Native bundle contains hooks (`useRewards` and `getRewards`) for an interactive survey rewards system.
+- **State Logs**: Hermes bytecode string tables contain flags indicating the survey logic is skipped:
+  - `isInitialLoading surveys is disabled.`
+  - `isRewardsLoading surveys skipped, disabled.`
+- **Status**: Currently deactivated via remote configuration or feature flags, resulting in empty returns from the rewards list API.
+
 
